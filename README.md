@@ -17,7 +17,7 @@ To create your account on -:
 
  [Fill this form](https://support.viber.com/customer/widget/emails/new?interaction_name=NEWEA)
  
- <img src="./docs/images/getPermissionForPA.png" alt="alt text" width="700" height="500">
+ <img src="./docs/images/getPermissionForPA.png" alt="alt text">
  
  Follow the instructions for verification as indicated by viber.
  
@@ -25,31 +25,31 @@ To create your account on -:
  
  Click Second button from top-right, to discover public accounts made by you.
  
- <img src="./docs/images/publicAccoutStartScreen.png" alt="alt text" width="350" height="600">
+ <img src="./docs/images/publicAccoutStartScreen.png" alt="alt text">
 
  Click blue button at bottom-right, to create a new one.
  
- <img src="./docs/images/publicAccountSecondScreen.png" alt="alt text" width="350" height="600">
+ <img src="./docs/images/publicAccountSecondScreen.png" alt="alt text">
  
  Click Join Now to start setting it up.
  
- <img src="./docs/images/Joining_public_%20account.png" alt="alt text" width="350" height="600">
+ <img src="./docs/images/Joining_public_%20account.png" alt="alt text">
  
  After filling the required details click Continue
  
- <img src="./docs/images/infoPublicAccount.png" alt="alt text" width="350" height="600">
+ <img src="./docs/images/infoPublicAccount.png" alt="alt text">
  
  Add more specific details.
  
- <img src="./docs/images/editAccountDetails.png" alt="alt text" width="350" height="600">
+ <img src="./docs/images/editAccountDetails.png" alt="alt text">
  
  Select Viber chat Api as your chat Solution.
  
- <img src="./docs/images/chooseChatSoln.png" alt="alt text" width="350" height="600">
+ <img src="./docs/images/chooseChatSoln.png" alt="alt text">
  
  Copy the public account key.
  
- <img src="./docs/images/publicAccountKey.png" alt="alt text" width="350" height="600">
+ <img src="./docs/images/publicAccountKey.png" alt="alt text">
  
 4. Change the key written after "'x-viber-auth-token':" (in index.js file) with the new public account key generated. Enclose the api key in ' '. Commit and push the changes to this forked repository.
 
@@ -57,7 +57,7 @@ To create your account on -:
 
  This app will accept the requests from Viber and Susi api.
  
- <img src="./docs/images/createHerokuApp.png" alt="alt text" width="800" height="500">
+ <img src="./docs/images/createHerokuApp.png" alt="alt text">
 
 6. Change the url in set webhook request options that is on line 33 in index.js file to https://YOUR-APP-NAME.herokuapp.com enclosed in ' '. Commit and push the changes to this forked repository.
 
@@ -65,30 +65,30 @@ To create your account on -:
  
  Connect the app to Github
  
-<img src="./docs/images/herokuGithubConnect.png" alt="alt text" width="800" height="500">
+<img src="./docs/images/herokuGithubConnect.png" alt="alt text">
 
 8. Deploy on development branch. If you intend to contribute, it is recommended to Enable Automatic Deploys.
 
  Branch Deployment.
  
-<img src="./docs/images/branchSelection.png" alt="alt text" width="800" height="500">
+<img src="./docs/images/branchSelection.png" alt="alt text">
 
  Successful Deployment.
  
- <img src="./docs/images/herokuDeployment.png" alt="alt text" width="800" height="500">
+ <img src="./docs/images/herokuDeployment.png" alt="alt text">
 
 9. Now, visit the created heroku app from a browser, and check if the status message received for set Webhook request is - ok. That means the webhook is successfully set. 
 
  This should be the output.
  
- <img src="./docs/images/statusMessageForWebhook.png" alt="alt text" width="800" height="500">
+ <img src="./docs/images/statusMessageForWebhook.png" alt="alt text">
 
 10. Go to the Viber public account created and click the symbol indicating 1-on-1 chat with Susi at your top right(second symbol).
   
  1-on-1 chat
  
-<img src="./docs/images/topRight.png" alt="alt text" width="350" height="600">
+<img src="./docs/images/topRight.png" alt="alt text">
 
 11. Enjoy chatting with Susi.
 
- <img src="./docs/images/susiChat.png" alt="alt text" width="350" height="600">
+ <img src="./docs/images/susiChat.png" alt="alt text">
