@@ -17,7 +17,7 @@ To create your account on -:
 
  [Fill this form](https://support.viber.com/customer/widget/emails/new?interaction_name=NEWEA)
  
- <img src="./docs/images/getPermissionForPA.png" alt="alt text">
+ <img src="./docs/images/getPermissionForPA.png" alt="alt text" height = '480' width="270">
  
  Follow the instructions for verification as indicated by viber.
  
@@ -25,31 +25,31 @@ To create your account on -:
  
  Click Second button from top-right, to discover public accounts made by you.
  
- <img src="./docs/images/publicAccoutStartScreen.png" alt="alt text">
+ <img src="./docs/images/publicAccoutStartScreen.png" alt="alt text" height = '480' width="270">
 
  Click blue button at bottom-right, to create a new one.
  
- <img src="./docs/images/publicAccountSecondScreen.png" alt="alt text">
+ <img src="./docs/images/publicAccountSecondScreen.png" alt="alt text" height = '480' width="270">
  
  Click Join Now to start setting it up.
  
- <img src="./docs/images/Joining_public_%20account.png" alt="alt text">
+ <img src="./docs/images/Joining_public_%20account.png" alt="alt text" height = '480' width="270">
  
  After filling the required details click Continue
  
- <img src="./docs/images/infoPublicAccount.png" alt="alt text">
+ <img src="./docs/images/infoPublicAccount.png" alt="alt text" height = '480' width="270">
  
  Add more specific details.
  
- <img src="./docs/images/editAccountDetails.png" alt="alt text">
+ <img src="./docs/images/editAccountDetails.png" alt="alt text" height = '480' width="270">
  
  Select Viber chat Api as your chat Solution.
  
- <img src="./docs/images/chooseChatSoln.png" alt="alt text">
+ <img src="./docs/images/chooseChatSoln.png" alt="alt text" height = '480' width="270">
  
  Copy the public account key.
  
- <img src="./docs/images/publicAccountKey.png" alt="alt text">
+ <img src="./docs/images/publicAccountKey.png" alt="alt text" height = '480' width="270">
  
 4. Change the key written after "'x-viber-auth-token':" (in index.js file) with the new public account key generated. Enclose the api key in ' '. Commit and push the changes to this forked repository.
 
@@ -87,8 +87,8 @@ To create your account on -:
   
  1-on-1 chat
  
-<img src="./docs/images/topRight.png" alt="alt text">
+<img src="./docs/images/topRight.png" alt="alt text" height = '480' width="270">
 
 11. Enjoy chatting with Susi.
 
- <img src="./docs/images/susiChat.png" alt="alt text">
+ <img src="./docs/images/susiChat.png" alt="alt text" height = '480' width="270">
