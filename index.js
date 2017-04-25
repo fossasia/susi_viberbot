@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-
+var request = require('request');
 app.set('port', (process.env.PORT || 5000));
 
 //app.use(express.static(__dirname + '/public'));
@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 app.get('/',function(req, response){
 	response.writeHead(200,{'content-type': 'text/plain'});
-	response.write("To chat with Susi through Viber, visit this link - chats.viber.com/chatauto and click on the 'Have a look' button");
+	response.write("To chat with Susi through Viber, visit this link - chats.viber.com/chatauto and click on the 'Have a look' button\n\n");
 	// setting options to request the chat api of viber.
 	var options={
 			method: 'POST',	
@@ -36,7 +36,7 @@ app.get('/',function(req, response){
 			json: true 
 	};
 	// request to the chat api of viber.
-	request(options, function(error, response, body) {
+	request(options, function(error, res, body) {
 		if (error) throw new Error(error);
 		response.write("The status message received for set Webhook request is - " + body.status_message);
 		response.end();
@@ -69,7 +69,7 @@ app.post('/postToPublic',function(req, response){
 			json: true 
 	};
 	// request to the chat api of viber.
-	request(options, function(error, response, body) {
+	request(options, function(error, res, body) {
 		if (error) throw new Error(error);
 		console.log(body);
 	});
@@ -124,7 +124,7 @@ app.post('/', function(req, response) {
 						json: true 
 					};
 			// request to the chat api of viber.
-			request(options, function (error, response, body) {
+			request(options, function (error, res, body) {
 				if (error) throw new Error(error);
 				console.log(body);
 			});
@@ -160,7 +160,7 @@ app.post('/', function(req, response) {
 				  	json: true 
 				};
 
-		request(options, function (error, response, body) {
+		request(options, function (error, res, body) {
 			if (error) throw new Error(error);
 			console.log(body);
 		});
