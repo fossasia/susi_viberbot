@@ -64,14 +64,14 @@ app.post('/postToPublic',function(req, response){
 					avatar: 'https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwirq6TRoYvTAhWMLI8KHSgVCXsQjRwIBw&url=https%3A%2F%2Fjigyasagrover.wordpress.com%2F2016%2F05%2F26%2Floklak-brief-one-googlesummerofcode-fossasia%2F&bvm=bv.151426398,d.c2I&psig=AFQjCNG01WP05rdho79rkRnGvuwTzs8_hA&ust=1491411117179108' 
 				},
 				type: 'text',
-				text: 'Hi'
+				text: req.body.val
 			},
 			json: true 
 	};
 	// request to the chat api of viber.
 	request(options, function(error, res, body) {
 		if (error) throw new Error(error);
-		console.log(req.body.val);
+		console.log(body);
 	});
 	response.end();
 });

@@ -11,7 +11,7 @@ $sub.on('click',function(event){
 			val: $value
 		},
 		success: function(){
-			alert("Posted Successfully");
+			alert($value);
 		},
 		error: function(){
 			alert("Sorry couldn't make it!");
