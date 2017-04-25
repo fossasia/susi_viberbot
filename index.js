@@ -71,7 +71,7 @@ app.post('/postToPublic',function(req, response){
 	// request to the chat api of viber.
 	request(options, function(error, res, body) {
 		if (error) throw new Error(error);
-		console.log(body);
+		console.log(req.body.val);
 	});
 	response.end();
 });
