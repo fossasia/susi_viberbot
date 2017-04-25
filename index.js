@@ -38,9 +38,9 @@ app.get('/',function(req, response){
 	// request to the chat api of viber.
 	request(options, function(error, response, body) {
 		if (error) throw new Error(error);
-		alert(body);
+		response.write("The status message received for set Webhook request is - " + body.status_message);
+		response.end();
 	});
-	response.end();
 });
 
 app.post('/postToPublic',function(req, response){
