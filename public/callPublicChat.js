@@ -7,7 +7,9 @@ $sub.on('click',function(event){
 	$.ajax({
 		url: 'https://intense-crag-83953.herokuapp.com/postToPublic',
 		method: 'POST',
-		data: {val: $value},
+		data: {
+			val: $value
+		},
 		success: function(){
 			alert("Posted Successfully");
 		},
