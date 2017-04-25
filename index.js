@@ -43,6 +43,39 @@ app.get('/',function(req, response){
 	response.end();
 });
 
+app.post('/postToPublic',function(req, response){
+	response.writeHead(200);
+	// setting options to request the chat api of viber.
+	var options={
+			method: 'POST',	
+			url: 'https://chatapi.viber.com/pa/post',
+			headers: 
+			{ 
+				'cache-control': 'no-cache',
+				'content-type': 'application/json',
+				'x-viber-auth-token': '45a53f0fcb325002-41552d1f93cd0d0f-1a8d7fa78758d158'
+			},
+			body: 
+			{
+			    from: "0JzJAjLh7wGDPJwDobRhwg==",
+			    sender: 
+				{
+					name: 'Susi',
+					avatar: 'https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwirq6TRoYvTAhWMLI8KHSgVCXsQjRwIBw&url=https%3A%2F%2Fjigyasagrover.wordpress.com%2F2016%2F05%2F26%2Floklak-brief-one-googlesummerofcode-fossasia%2F&bvm=bv.151426398,d.c2I&psig=AFQjCNG01WP05rdho79rkRnGvuwTzs8_hA&ust=1491411117179108' 
+				},
+				type: 'text',
+				text: 'Hi'
+			},
+			json: true 
+	};
+	// request to the chat api of viber.
+	request(options, function(error, response, body) {
+		if (error) throw new Error(error);
+		console.log(body);
+	});
+	response.end();
+});
+
 app.post('/', function(req, response) {
 	response.writeHead(200);
 	

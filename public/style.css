@@ -1,0 +1,24 @@
+.row{
+	width: 80%;
+	padding: 10px 0px 10px 0px;
+	margin-left: 10%;
+}
+
+.row label{
+	float: left;
+	width: 25%;
+	text-align: center; 
+}
+
+input[type='submit']{
+	padding: 10px 20px 10px 20px;
+	font-size: 15px;
+	margin-left: 25%;
+	border-radius: 20px;
+}
+
+#publicChatMessage{
+	margin-left: 25%;
+	margin-top: 17%;
+	width: 50%;
+}
