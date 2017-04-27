@@ -17,7 +17,7 @@ To create your account on -:
 
  [Fill this form](https://support.viber.com/customer/widget/emails/new?interaction_name=NEWEA)
  
- <img src="./docs/images/getPermissionForPA.png" alt="alt text" height = '480' width="270">
+ <img src="./docs/images/getPermissionForPA.png" alt="alt text">
  
  Follow the instructions for verification as indicated by viber.
  
