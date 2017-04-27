@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.2.5",
-  "description": "A sample Node.js app using Express 4",
+  "name": "Susi Viber bot",
+  "version": "0.1",
+  "description": "To integrate Susi Ai bot to Viber messenger",
   "engines": {
     "node": "5.9.1"
   },
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/fossasia/susi_viberbot"
   },
   "keywords": [
     "node",
