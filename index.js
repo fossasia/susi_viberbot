@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-
+var request = require('request');
 app.set('port', (process.env.PORT || 5000));
 
 //app.use(express.static(__dirname + '/public'));
@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 app.get('/',function(req, response){
 	response.writeHead(200,{'content-type': 'text/plain'});
-	response.write("To chat with Susi through Viber, visit this link - chats.viber.com/chatauto and click on the 'Have a look' button");
+	response.write("To chat with Susi through Viber, visit this link - chats.viber.com/chatauto and click on the 'Have a look' button\n\n");
 	// setting options to request the chat api of viber.
 	var options={
 			method: 'POST',	
@@ -36,9 +36,41 @@ app.get('/',function(req, response){
 			json: true 
 	};
 	// request to the chat api of viber.
-	request(options, function(error, response, body) {
+	request(options, function(error, res, body) {
 		if (error) throw new Error(error);
-		alert(body);
+		response.write("The status message received for set Webhook request is - " + body.status_message);
+		response.end();
+	});
+});
+
+app.post('/postToPublic',function(req, response){
+	response.writeHead(200);
+	// setting options to request the chat api of viber.
+	var options={
+			method: 'POST',	
+			url: 'https://chatapi.viber.com/pa/post',
+			headers: 
+			{ 
+				'cache-control': 'no-cache',
+				'content-type': 'application/json',
+				'x-viber-auth-token': '45a53f0fcb325002-41552d1f93cd0d0f-1a8d7fa78758d158'
+			},
+			body: 
+			{
+			    from: "0JzJAjLh7wGDPJwDobRhwg==",
+			    sender: 
+				{
+					name: 'Susi',
+					avatar: 'https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwirq6TRoYvTAhWMLI8KHSgVCXsQjRwIBw&url=https%3A%2F%2Fjigyasagrover.wordpress.com%2F2016%2F05%2F26%2Floklak-brief-one-googlesummerofcode-fossasia%2F&bvm=bv.151426398,d.c2I&psig=AFQjCNG01WP05rdho79rkRnGvuwTzs8_hA&ust=1491411117179108' 
+				},
+				type: 'text',
+				text: req.body.val
+			},
+			json: true 
+	};
+	// request to the chat api of viber.
+	request(options, function(error, res, body) {
+		if (error) throw new Error(error);
 	});
 	response.end();
 });
@@ -91,7 +123,7 @@ app.post('/', function(req, response) {
 						json: true 
 					};
 			// request to the chat api of viber.
-			request(options, function (error, response, body) {
+			request(options, function (error, res, body) {
 				if (error) throw new Error(error);
 				console.log(body);
 			});
@@ -127,7 +159,7 @@ app.post('/', function(req, response) {
 				  	json: true 
 				};
 
-		request(options, function (error, response, body) {
+		request(options, function (error, res, body) {
 			if (error) throw new Error(error);
 			console.log(body);
 		});
