@@ -2,6 +2,12 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var request = require('request');
+var headerBody = { 
+				 	'cache-control': 'no-cache',
+					'content-type': 'application/json',
+					// recommended to inject access tokens as environmental variables, e.g.
+					'x-viber-auth-token': process.env.X_VIBER_AUTH_TOKEN
+				 };
 app.set('port', (process.env.PORT || 5000));
 
 //app.use(express.static(__dirname + '/public'));
@@ -22,12 +28,7 @@ app.get('/',function(req, response){
 	var options={
 			method: 'POST',	
 			url: 'https://chatapi.viber.com/pa/set_webhook',
-			headers: 
-			{ 
-				'cache-control': 'no-cache',
-				'content-type': 'application/json',
-				'x-viber-auth-token': '45a53f0fcb325002-41552d1f93cd0d0f-1a8d7fa78758d158'
-			},
+			headers: headerBody,
 			body: 
 			{
 			 	url: 'https://intense-crag-83953.herokuapp.com',
@@ -49,12 +50,7 @@ app.post('/postToPublic',function(req, response){
 	var options={
 			method: 'POST',	
 			url: 'https://chatapi.viber.com/pa/post',
-			headers: 
-			{ 
-				'cache-control': 'no-cache',
-				'content-type': 'application/json',
-				'x-viber-auth-token': '45a53f0fcb325002-41552d1f93cd0d0f-1a8d7fa78758d158'
-			},
+			headers: headerBody,
 			body: 
 			{
 			    from: "0JzJAjLh7wGDPJwDobRhwg==",
@@ -101,12 +97,7 @@ app.post('/', function(req, response) {
 			var options =   {
 						method: 'POST',	
 						url: 'https://chatapi.viber.com/pa/send_message',
-						headers: 
-						{ 
-							'cache-control': 'no-cache',
-							'content-type': 'application/json',
-							'x-viber-auth-token': '45a53f0fcb325002-41552d1f93cd0d0f-1a8d7fa78758d158'
-						},
+						headers: headerBody,
 						body: 
 						{
 							receiver: req.body.sender.id,
@@ -137,12 +128,7 @@ app.post('/', function(req, response) {
 		var options = {
 					method: 'POST',	
   					url: 'https://chatapi.viber.com/pa/send_message',
-					headers: 
-				    { 
-				    	'cache-control': 'no-cache',
-				    	'content-type': 'application/json',
-				    	'x-viber-auth-token': '45a53f0fcb325002-41552d1f93cd0d0f-1a8d7fa78758d158'
-				    },
+					headers: headerBody,
 				    body: 
 				    {
 				    	receiver: req.body.user.id,
