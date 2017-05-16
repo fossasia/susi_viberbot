@@ -47,23 +47,26 @@ To create your account on -:
  
  <img src="./docs/images/chooseChatSoln.png" alt="alt text" height = '480' width="270">
  
- Copy the public account key.
+ Copy the public account key. (It will be in the area that is coloured gray).
  
  <img src="./docs/images/publicAccountKey.png" alt="alt text" height = '480' width="270">
  
-4. Change the key written after "'x-viber-auth-token':" (in index.js file) with the new public account key generated. Enclose the api key in ' '. Commit and push the changes to this forked repository.
-
-5. Create a new heroku app [here](https://dashboard.heroku.com/new?org=personal-apps).
+4. Create a new heroku app [here](https://dashboard.heroku.com/new?org=personal-apps).
 
  This app will accept the requests from Viber and Susi api.
  
  <img src="./docs/images/createHerokuApp.png" alt="alt text">
 
-6. Change the url in set webhook request options that is on line 33 in index.js file to https://YOUR-APP-NAME.herokuapp.com enclosed in ' '. Commit and push the changes to this forked repository.
+5. Create a config variable by switching to settings page of your app. The name of your config variable should be X_VIBER_AUTH_TOKEN 
+   and its value is the API key generated in step 3.
+
+   <img src="./docs/images/configVariables.PNG" alt="alt text">
+
+6. Change the url in set webhook request options that is on line 33 in index.js file to https://YOUR-HEROKU-APP-NAME.herokuapp.com enclosed in ' '. Commit and push the changes to this forked repository.
 
 7. Connect the heroku app to the forked repository.
  
- Connect the app to Github
+ Connect the app to Github by selecting the name of this forked repository.
  
 <img src="./docs/images/herokuGithubConnect.png" alt="alt text">
 
