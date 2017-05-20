@@ -1,6 +1,6 @@
 # Getting Started : Viber Susi AI Bot Installation 
 
-It's easy for you to create your own Viber messenger bot and integrate susi's API into it. You can read the [documentation](https://developers.viber.com/public-accounts/index.html) on how to make a public account in Viber and get started.
+It's easy for you to create your own Viber messenger bot and integrate susi's API into it. You can read the [documentation](https://support.viber.com/customer/en/portal/articles/2554141-create-a-public-account?b_id=13518) on how to make a public account in Viber and get started.
 
 Messenger bots uses a web server to process messages it receives or to figure out what messages to send.
 
