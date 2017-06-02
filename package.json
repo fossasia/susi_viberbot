@@ -13,6 +13,7 @@
     "body-parser": "1.17.1",
     "ejs": "2.4.1",
     "express": "4.13.3",
+    "http": "0.0.0",
     "request": "2.81.0"
   },
   "repository": {
