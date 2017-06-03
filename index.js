@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var request = require('request');
+var http = require('http');
 var headerBody = { 
 				 	'cache-control': 'no-cache',
 					'content-type': 'application/json',
@@ -9,6 +10,11 @@ var headerBody = {
 					'x-viber-auth-token': process.env.X_VIBER_AUTH_TOKEN
 				 };
 app.set('port', (process.env.PORT || 5000));
+
+//to ping heorku app after 20 minutes to keep it active 
+setInterval(function() {
+		http.get('https://intense-crag-83953.herokuapp.com');
+	}, 1200000);
 
 //app.use(express.static(__dirname + '/public'));
 
