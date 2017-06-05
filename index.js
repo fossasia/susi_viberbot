@@ -8,7 +8,7 @@ var headerBody = {
 					'content-type': 'application/json',
 					// recommended to inject access tokens as environmental variables, e.g.
 					'x-viber-auth-token': process.env.X_VIBER_AUTH_TOKEN
-				 };
+				 };					
 app.set('port', (process.env.PORT || 5000));
 
 //to ping heorku app after 20 minutes to keep it active 
@@ -63,7 +63,7 @@ app.post('/postToPublic',function(req, response){
 			    sender: 
 				{
 					name: 'Susi',
-					avatar: 'https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwirq6TRoYvTAhWMLI8KHSgVCXsQjRwIBw&url=https%3A%2F%2Fjigyasagrover.wordpress.com%2F2016%2F05%2F26%2Floklak-brief-one-googlesummerofcode-fossasia%2F&bvm=bv.151426398,d.c2I&psig=AFQjCNG01WP05rdho79rkRnGvuwTzs8_hA&ust=1491411117179108' 
+					avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png' 
 				},
 				type: 'text',
 				text: req.body.val
@@ -84,7 +84,6 @@ app.post('/', function(req, response) {
 	if(req.body.event === 'message'){
 		// Susi answer to a user message
 		var ans;
-		var request = require("request");
 		
 		// setting options to request susi bot.
 		var options1 = { 
@@ -99,8 +98,10 @@ app.post('/', function(req, response) {
   			// answer fetched from susi
 			ans = (JSON.parse(body1)).answers[0].actions[0].expression;
   			
-			// setting options to request the chat api of viber.
-			var options =   {
+			// checking type of json response
+			if((JSON.parse(body1)).answers[0].actions.length == 3 &&  (JSON.parse(body1)).answers[0].actions[2].type == "map" ){
+				
+				var options =   {
 						method: 'POST',	
 						url: 'https://chatapi.viber.com/pa/send_message',
 						headers: headerBody,
@@ -111,7 +112,63 @@ app.post('/', function(req, response) {
 							sender: 
 							{
 								name: 'Susi',
-								avatar: 'https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwirq6TRoYvTAhWMLI8KHSgVCXsQjRwIBw&url=https%3A%2F%2Fjigyasagrover.wordpress.com%2F2016%2F05%2F26%2Floklak-brief-one-googlesummerofcode-fossasia%2F&bvm=bv.151426398,d.c2I&psig=AFQjCNG01WP05rdho79rkRnGvuwTzs8_hA&ust=1491411117179108' 
+								avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png' 
+							},
+							tracking_data: 'tracking data',
+							type: 'text',
+							text: ans 
+						},
+						json: true 
+					};
+				
+			// request to the chat api of viber.
+			request(options, function (error, res, body) {
+				if (error) throw new Error(error);
+				console.log(body);
+			});
+				
+			var options1 =   {
+						method: 'POST',	
+						url: 'https://chatapi.viber.com/pa/send_message',
+						headers: headerBody,
+						body: 
+						{
+							receiver: req.body.sender.id,
+							min_api_version: 1,
+							sender: 
+							{
+								name: 'Susi',
+								avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png' 
+							},
+							tracking_data: 'tracking data',
+							type: 'location',
+							location: {
+							lat: (JSON.parse(body1)).answers[0].actions[2].latitude,
+							lon: (JSON.parse(body1)).answers[0].actions[2].longitude
+							}
+							
+						},
+						json: true 
+					};
+			// request to the chat api of viber.
+			request(options1, function (error, res, body) {
+				if (error) throw new Error(error);
+				console.log(body);
+			});
+			}else{
+				
+				var options =   {
+						method: 'POST',	
+						url: 'https://chatapi.viber.com/pa/send_message',
+						headers: headerBody,
+						body: 
+						{
+							receiver: req.body.sender.id,
+							min_api_version: 1,
+							sender: 
+							{
+								name: 'Susi',
+								avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png' 
 							},
 							tracking_data: 'tracking data',
 							type: 'text',
@@ -123,7 +180,8 @@ app.post('/', function(req, response) {
 			request(options, function (error, res, body) {
 				if (error) throw new Error(error);
 				console.log(body);
-			});
+			});	
+			}
 		});		
 	}
 	
@@ -142,7 +200,7 @@ app.post('/', function(req, response) {
 				    	sender: 
 				    	{
 				    		name: 'Susi',
-				        	avatar: 'https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwirq6TRoYvTAhWMLI8KHSgVCXsQjRwIBw&url=https%3A%2F%2Fjigyasagrover.wordpress.com%2F2016%2F05%2F26%2Floklak-brief-one-googlesummerofcode-fossasia%2F&bvm=bv.151426398,d.c2I&psig=AFQjCNG01WP05rdho79rkRnGvuwTzs8_hA&ust=1491411117179108' 
+				        	avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png' 
 				    	},
 			     		tracking_data: 'tracking data',
 			     		type: 'text',
