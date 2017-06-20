@@ -1,29 +1,30 @@
 {
-  "name": "Susi Viber bot",
-  "version": "0.1",
-  "description": "To integrate Susi Ai bot to Viber messenger",
-  "engines": {
-    "node": "5.9.1"
-  },
+  "name": "susi-viber-bot",
+  "version": "1.0.0",
+  "description": "Susi AI bot for viber messenger",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
+  "directories": {
+    "doc": "docs"
   },
-  "dependencies": {
-    "body-parser": "1.17.1",
-    "ejs": "2.4.1",
-    "express": "4.13.3",
-    "http": "0.0.0",
-    "request": "2.81.0"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start":"node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fossasia/susi_viberbot"
+    "url": "https://github.com/fossasia/susi_viberbot.git"
   },
   "keywords": [
     "node",
     "heroku",
     "express"
   ],
-  "license": "MIT"
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "http": "0.0.0",
+    "request": "^2.81.0"
+  }
 }
