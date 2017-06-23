@@ -9,6 +9,10 @@ var headerBody = {
     // recommended to inject access tokens as environmental variables, e.g.
     'x-viber-auth-token': process.env.X_VIBER_AUTH_TOKEN
 };
+var buttons = [];
+var text = [];
+var link = [];
+var value;
 app.set('port', (process.env.PORT || 5000));
 
 //to ping heorku app after 20 minutes to keep it active
@@ -84,6 +88,7 @@ app.post('/', function(req, response) {
         // Susi answer to a user message
         var ans;
         var request = require('request');
+				var message = req.body.message.text;
 
         // setting options to request susi bot.
         var options1 = {
@@ -161,10 +166,6 @@ app.post('/', function(req, response) {
                 var data = (JSON.parse(body1)).answers[0].data;
                 var columns = (JSON.parse(body1)).answers[0].actions[0].columns;
                 var key = Object.keys(columns);
-                var buttons = [];
-                var text = [];
-                var link = [];
-                var value;
 
                 for (i = 0; i < 10; i++) {
                     text[i] = "";
@@ -212,7 +213,7 @@ app.post('/', function(req, response) {
                     if (error) throw new Error(error);
                     console.log(body);
                 });
-            } else {
+            } else if(link.indexOf(message) <= -1) {
 
                 var options = {
                     method: 'POST',
