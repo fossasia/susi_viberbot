@@ -17,7 +17,7 @@ app.set('port', (process.env.PORT || 5000));
 
 //to ping heorku app after 20 minutes to keep it active
 setInterval(function() {
-    http.get('https://intense-crag-83953.herokuapp.com');
+    http.get(process.env.herokuURL);
 }, 1200000);
 
 //app.use(express.static(__dirname + '/public'));
@@ -42,7 +42,7 @@ app.get('/', function(req, response) {
         url: 'https://chatapi.viber.com/pa/set_webhook',
         headers: headerBody,
         body: {
-            url: 'https://intense-crag-83953.herokuapp.com',
+            url: process.env.herokuURL,
             event_types: ['delivered', 'seen', 'failed', 'subscribed', 'unsubscribed', 'conversation_started']
         },
         json: true
@@ -166,8 +166,9 @@ app.post('/', function(req, response) {
                 var data = (JSON.parse(body1)).answers[0].data;
                 var columns = (JSON.parse(body1)).answers[0].actions[0].columns;
                 var key = Object.keys(columns);
+                var count = (JSON.parse(body1)).answers[0].metadata.count
 
-                for (i = 0; i < 10; i++) {
+                for (i = 0; i < count; i++) {
                     text[i] = "";
                     link[i] = data[i][key[2]];
                     for (j = 0; j < key.length; j++) {
@@ -177,7 +178,7 @@ app.post('/', function(req, response) {
                     }
                 }
 
-                for (i = 0; i < 10; i++) {
+                for (i = 0; i < count; i++) {
                     buttons[i] = {
                         Columns: 6,
                         Rows: 3,
