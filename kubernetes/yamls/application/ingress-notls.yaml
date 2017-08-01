@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: viber
+  namespace: viber
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: susi-viberbot.tk
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: viber
+          servicePort: 80
