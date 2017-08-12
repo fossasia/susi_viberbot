@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: viber
+  namespace: viber
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: viber
+    spec:
+      containers:
+      - name: viber
+        image: fossasia/susi_viberbot:latest-master
+        ports:
+        - containerPort: 8080

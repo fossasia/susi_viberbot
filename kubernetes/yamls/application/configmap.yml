@@ -1,0 +1,7 @@
+apiVersion: v1
+metadata:
+  name: viber
+  namespace: viber
+data:
+  X_VIBER_AUTH_TOKEN: "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+kind: ConfigMap

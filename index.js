@@ -7,18 +7,13 @@ var headerBody = {
     'cache-control': 'no-cache',
     'content-type': 'application/json',
     // recommended to inject access tokens as environmental variables, e.g.
-    'x-viber-auth-token': process.env.X_VIBER_AUTH_TOKEN
+    'x-viber-auth-token': process.env.X_VIBER_AUTH_TOKEN || config.X_VIBER_AUTH_TOKEN
 };
 var buttons = [];
 var text = [];
 var link = [];
 var value;
-app.set('port', (process.env.PORT || 5000));
-
-//to ping heorku app after 20 minutes to keep it active
-setInterval(function() {
-    http.get(process.env.herokuURL);
-}, 1200000);
+app.set('port', (process.env.PORT || 8080));
 
 //app.use(express.static(__dirname + '/public'));
 
@@ -42,7 +37,7 @@ app.get('/', function(req, response) {
         url: 'https://chatapi.viber.com/pa/set_webhook',
         headers: headerBody,
         body: {
-            url: process.env.herokuURL,
+            url: 'https://susi-viberbot.tk/',
             event_types: ['delivered', 'seen', 'failed', 'subscribed', 'unsubscribed', 'conversation_started']
         },
         json: true
