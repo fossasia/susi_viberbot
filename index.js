@@ -210,72 +210,66 @@ app.post('/', function(req, response) {
                     console.log(body);
                 });
             } else if (type.length == 2 && type[1].type == "rss"){
-              var data = (JSON.parse(body1)).answers[0].data;
-              var columns = type[1];
-              var key = Object.keys(columns);
-              var msg = [];
-              console.log(key);
+				var data = (JSON.parse(body1)).answers[0].data;
+				var columns = type[1];
+				var key = Object.keys(columns);
+				var msg = [];
+				console.log(key);
 
-              for (var i = 0; i < 4; i++) {
-              if(i==0){
-                    msg = (JSON.parse(body1)).answers[0].actions[0].expression;
+	            msg = (JSON.parse(body1)).answers[0].actions[0].expression;
 
-                    var options = {
-                        method: 'POST',
-                        url: 'https://chatapi.viber.com/pa/send_message',
-                        headers: headerBody,
-                        body: {
-                            receiver: req.body.sender.id,
-                            min_api_version: 1,
-                            sender: {
-                                name: 'Susi',
-                                avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png'
-                            },
-                            tracking_data: 'tracking data',
-                            type: 'text',
-                            text: msg
-                        },
-                        json: true
-                    };
+	            var options = {
+	                method: 'POST',
+	                url: 'https://chatapi.viber.com/pa/send_message',
+	                headers: headerBody,
+	                body: {
+	                    receiver: req.body.sender.id,
+	                    min_api_version: 1,
+	                    sender: {
+	                        name: 'Susi',
+	                        avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png'
+	                    },
+	                    tracking_data: 'tracking data',
+	                    type: 'text',
+	                    text: msg
+	                },
+	                json: true
+	            };
 
-                    // request to the chat api of viber.
-                    request(options, function(error, res, body) {
-                        if (error) throw new Error(error);
-                        console.log(body);
-                    });
+	            // request to the chat api of viber.
+	            request(options, function(error, res, body) {
+	                if (error) throw new Error(error);
+	                console.log(body);
+	            	for (var i = 1; i < 4; i++) {
+	                	msg = "";
+	                    msg = key[1].toUpperCase() + ": " + data[i][key[1]] + "\n" + key[2].toUpperCase() + ": " + data[i][key[2]] + "\n" + key[3].toUpperCase() + ": " + data[i][key[3]];
+	                    console.log(msg);
+	                    var options = {
+	                        method: 'POST',
+	                        url: 'https://chatapi.viber.com/pa/send_message',
+	                        headers: headerBody,
+	                        body: {
+	                            receiver: req.body.sender.id,
+	                            min_api_version: 1,
+	                            sender: {
+	                                name: 'Susi',
+	                                avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png'
+	                            },
+	                            tracking_data: 'tracking data',
+	                            type: 'text',
+	                            text: msg
+	                        },
+	                        json: true
+	                    };
 
-              } else{
-                    msg = "";
-                    msg =key[1].toUpperCase() + ": " + data[i][key[1]] + "\n" + key[2].toUpperCase() + ": " + data[i][key[2]] + "\n" + key[3].toUpperCase() + ": " + data[i][key[3]];
+	                    // request to the chat api of viber.
+	                    request(options, function(error, res, body) {
+	                        if (error) throw new Error(error);
+	                        console.log(body);
+	                    });
 
-                    var options = {
-                        method: 'POST',
-                        url: 'https://chatapi.viber.com/pa/send_message',
-                        headers: headerBody,
-                        body: {
-                            receiver: req.body.sender.id,
-                            min_api_version: 1,
-                            sender: {
-                                name: 'Susi',
-                                avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png'
-                            },
-                            tracking_data: 'tracking data',
-                            type: 'text',
-                            text: msg
-                        },
-                        json: true
-                    };
-
-                    // request to the chat api of viber.
-                    setTimeout(function() {
-                    request(options, function(error, res, body) {
-                        if (error) throw new Error(error);
-                        console.log(body);
-                    });
-                  }, 500);
-
-                }
-              }
+	                }    
+	            });
             } else if(link.indexOf(message) <= -1) {
 
                 var options = {
