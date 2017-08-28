@@ -29,7 +29,7 @@ gcloud config set project susi-telegrambot
 gcloud container clusters get-credentials bots
 echo ">>> Building Docker image"
 cd kubernetes/images/generator
-docker build --build-arg COMMIT_HASH=$TRAVIS_COMMIT --build-arg BRANCH=$DEPLOY_BRANCH --build-arg REPOSITORY=$REPOSITORY --no-cache -t aliayubkhan/susi_viberbot:$TRAVIS_COMMIT .
+docker build --build-arg COMMIT_HASH=$TRAVIS_COMMIT --build-arg BRANCH=$DEPLOY_BRANCH --build-arg REPOSITORY=$REPOSITORY --no-cache -t fossasia/susi_viberbot:$TRAVIS_COMMIT .
 docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 docker tag fossasia/susi_viberbot:$TRAVIS_COMMIT fossasia/susi_viberbot:latest-$DEPLOY_BRANCH
 echo ">>> Pushing docker image"
