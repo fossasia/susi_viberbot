@@ -111,10 +111,6 @@ app.post('/', function(req, response) {
                     body: {
                         receiver: req.body.sender.id,
                         min_api_version: 1,
-                        sender: {
-                            name: 'Susi',
-                            avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png'
-                        },
                         tracking_data: 'tracking data',
                         type: 'text',
                         text: ans + '\nSelect one of the following:'
