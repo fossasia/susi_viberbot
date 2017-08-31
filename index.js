@@ -192,10 +192,6 @@ app.post('/', function(req, response) {
                     body: {
                         receiver: req.body.sender.id,
                         min_api_version: 1,
-                        sender: {
-                            name: 'Susi',
-                            avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png'
-                        },
                         tracking_data: 'tracking data',
                         type: 'text',
                         text: ans + '\nYou can try the following:'
@@ -292,10 +288,6 @@ app.post('/', function(req, response) {
                         body: {
                             receiver: req.body.sender.id,
                             min_api_version: 1,
-                            sender: {
-                                name: 'Susi',
-                                avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png'
-                            },
                             tracking_data: 'tracking data',
                             type: 'text',
                             text: ans
@@ -316,17 +308,12 @@ app.post('/', function(req, response) {
                         body: {
                             receiver: req.body.sender.id,
                             min_api_version: 1,
-                            sender: {
-                                name: 'Susi',
-                                avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png'
-                            },
                             tracking_data: 'tracking data',
                             type: 'location',
                             location: {
                                 lat: latitude,
                                 lon: longitude
                             }
-
                         },
                         json: true
                     };
@@ -403,10 +390,6 @@ app.post('/', function(req, response) {
     	                body: {
     	                    receiver: req.body.sender.id,
     	                    min_api_version: 1,
-    	                    sender: {
-    	                        name: 'Susi',
-    	                        avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png'
-    	                    },
     	                    tracking_data: 'tracking data',
     	                    type: 'text',
     	                    text: msg
@@ -429,10 +412,6 @@ app.post('/', function(req, response) {
     	                        body: {
     	                            receiver: req.body.sender.id,
     	                            min_api_version: 1,
-    	                            sender: {
-    	                                name: 'Susi',
-    	                                avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png'
-    	                            },
     	                            tracking_data: 'tracking data',
     	                            type: 'text',
     	                            text: msg
@@ -457,10 +436,6 @@ app.post('/', function(req, response) {
                         body: {
                             receiver: req.body.sender.id,
                             min_api_version: 1,
-                            sender: {
-                                name: 'Susi',
-                                avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png'
-                            },
                             tracking_data: 'tracking data',
                             type: 'text',
                             text: ans
@@ -488,10 +463,6 @@ app.post('/', function(req, response) {
             body: {
                 receiver: req.body.user.id,
                 min_api_version: 1,
-                sender: {
-                    name: 'Susi',
-                    avatar: 'https://github.com/fossasia/susi_viberbot/tree/master/docs/images/susi.png'
-                },
                 tracking_data: 'tracking data',
                 type: 'text',
                 text: 'Welcome to SUSI.AI!, ' + req.body.user.name + '.',
